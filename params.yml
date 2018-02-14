@@ -1,0 +1,32 @@
+# parameters for creating EC2 instance
+aws_api_key:    "{{ lookup('ini', 'aws_access_key_id     file=~/.aws/credentials section=default') }}"
+aws_api_secret: "{{ lookup('ini', 'aws_secret_access_key file=~/.aws/credentials section=default') }}"
+# parameters for accessing launched instance
+ec2_key_name: av.nast
+private_key_path: ~/.ssh/aws_avnast_id_rsa
+
+# required for idempotence, or we'll launch new instance every play
+ec2_instance_id: avnast_OI_82i
+
+# EC2
+ec2_instance_type: t2.micro
+
+ec2_image: ami-f2d3638a
+
+ec2_region: us-west-2
+# tags for instance
+ec2_tags:
+  Creator: avnast
+  Task: jenkins_server_setup
+  Name: OI-82
+
+# security group
+ec2_security_group: avnast_jenkins
+ec2_security_group_description: 'Security group for Jenkins deployment'
+
+# Jenkins start params JENKINS_* as in /etc/sysconfig/jenkins
+# need to set JAVA_CMD because AMI Linux uses Java 7 by default
+JENKINS:
+  PORT: 8080
+  JAVA_CMD: /usr/bin/java8
+
