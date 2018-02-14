@@ -7,5 +7,5 @@ Usage:
   2) run 'ansible-playbook playbook.yml'
   
 Requirements:
-  boto (required by Ansible modules ec2 and ec2_group)
-  valid AWS API credentials
+  - boto (required by Ansible modules ec2 and ec2_group)
+  - valid AWS API credentials
