@@ -7,6 +7,7 @@ Usage:
   2) run 'ansible-playbook playbook.yml'
   
 Requirements:
+  - ansible >= 2.4.2
   - boto, boto3, python >= 2.6 (required by Ansible modules ec2 and ec2_group)
   - valid AWS API credentials
   - Internet connectivity for launched instance
