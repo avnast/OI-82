@@ -24,6 +24,9 @@
             from_port: -1
             to_port: -1
             cidr_ip: 0.0.0.0/0
+        rules_egress:
+          - proto: all
+            cidr_ip: 0.0.0.0/0
 
     - name: Launch instance
       ec2:
